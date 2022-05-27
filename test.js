@@ -38,6 +38,12 @@ const invalid = {
     name: 'Example',
     version: 'xxx',
     content: ['example']
+  },
+  'version without dots': {
+    publisher: 'Example',
+    name: 'Example',
+    version: '1X2X3',
+    content: ['example']
   }
 }
 
