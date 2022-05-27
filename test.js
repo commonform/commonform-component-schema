@@ -14,6 +14,12 @@ const valid = {
     version: '1.0.0',
     permalink: 'https://stonecutters.law/california-governing-law/1.0.0',
     content: ['The law of the State of California will govern all rights and duties under this agreement.']
+  },
+  'draft version': {
+    publisher: 'Example',
+    name: 'Example',
+    version: '1.0.0-1',
+    content: ['example']
   }
 }
 
@@ -26,7 +32,13 @@ for (const label in valid) {
 }
 
 const invalid = {
-  'no publisher': Object.assign({}, valid['California Governing Law'], { publisher: undefined })
+  'no publisher': Object.assign({}, valid['California Governing Law'], { publisher: undefined }),
+  'malformed version': {
+    publisher: 'Example',
+    name: 'Example',
+    version: 'xxx',
+    content: ['example']
+  }
 }
 
 for (const label in invalid) {
