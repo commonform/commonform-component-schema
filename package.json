@@ -1,0 +1,19 @@
+{
+  "name": "commonform-component-schema.json",
+  "version": "0.0.0",
+  "description": "JSON schema for Common Form component server responses",
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "repository": "commonform/commonform-component-schema",
+  "license": "BlueOak-1.0.0",
+  "files": [
+    "index.json"
+  ],
+  "devDependencies": {
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
+    "tape": "^5.5.3"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
