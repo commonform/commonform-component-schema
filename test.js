@@ -72,6 +72,30 @@ const objects = {
       version: 'xxx',
       content: ['example']
     },
+    'leading space in publisher': {
+      publisher: ' Example',
+      name: 'Example',
+      version: '1.0.0',
+      content: ['example']
+    },
+    'leading space in name': {
+      publisher: 'Example',
+      name: ' Example',
+      version: '1.0.0',
+      content: ['example']
+    },
+    'trailing space in publisher': {
+      publisher: 'Example ',
+      name: 'Example',
+      version: '1.0.0',
+      content: ['example']
+    },
+    'trailing space in name': {
+      publisher: 'Example',
+      name: 'Example ',
+      version: '1.0.0',
+      content: ['example']
+    },
     'version without dots': {
       publisher: 'Example',
       name: 'Example',
