@@ -45,48 +45,53 @@ const ajv = new Ajv({ allErrors: true })
 addFormats(ajv)
 const validate = ajv.compile(schema)
 
-const valid = {
-  'California Governing Law': {
-    publisher: 'Stonecutters',
-    name: 'California Governing Law',
-    version: '1.0.0',
-    content: ['The law of the State of California will govern all rights and duties under this agreement.']
+const objects = {
+  valid: {
+    'California Governing Law': {
+      publisher: 'Stonecutters',
+      name: 'California Governing Law',
+      version: '1.0.0',
+      content: ['The law of the State of California will govern all rights and duties under this agreement.']
+    },
+    'draft version': {
+      publisher: 'Example',
+      name: 'Example',
+      version: '1.0.0-1',
+      content: ['example']
+    }
   },
-  'draft version': {
-    publisher: 'Example',
-    name: 'Example',
-    version: '1.0.0-1',
-    content: ['example']
+  invalid: {
+    'no publisher': {
+      name: 'Example',
+      version: '1.0.0',
+      content: ['example']
+    },
+    'malformed version': {
+      publisher: 'Example',
+      name: 'Example',
+      version: 'xxx',
+      content: ['example']
+    },
+    'version without dots': {
+      publisher: 'Example',
+      name: 'Example',
+      version: '1X2X3',
+      content: ['example']
+    }
   }
 }
 
-const invalid = {
-  'no publisher': Object.assign({}, valid['California Governing Law'], { publisher: undefined }),
-  'malformed version': {
-    publisher: 'Example',
-    name: 'Example',
-    version: 'xxx',
-    content: ['example']
-  },
-  'version without dots': {
-    publisher: 'Example',
-    name: 'Example',
-    version: '1X2X3',
-    content: ['example']
-  }
-}
-
-for (const label in valid) {
+for (const label in objects.valid) {
   tape(`valid: ${label}`, test => {
-    validate(valid[label])
+    validate(objects.valid[label])
     test.deepEqual(validate.errors, null, label)
     test.end()
   })
 }
 
-for (const label in invalid) {
+for (const label in objects.invalid) {
   tape(`invalid: ${label}`, test => {
-    validate(invalid[label])
+    validate(objects.invalid[label])
     test.assert(Array.isArray(validate.errors), label)
     test.end()
   })
