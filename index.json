@@ -15,10 +15,6 @@
       "type": "string",
       "minLength": 1
     },
-    "permalink": {
-      "type": "string",
-      "format": "url"
-    },
     "version": {
       "type": "string",
       "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[1-9][0-9]*)?$"

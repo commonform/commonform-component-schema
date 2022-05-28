@@ -50,7 +50,6 @@ const valid = {
     publisher: 'Stonecutters',
     name: 'California Governing Law',
     version: '1.0.0',
-    permalink: 'https://stonecutters.law/california-governing-law/1.0.0',
     content: ['The law of the State of California will govern all rights and duties under this agreement.']
   },
   'draft version': {
