@@ -16,12 +16,12 @@ const versions = {
     '1.2.3-45'
   ],
   invalid: [
-    '001.2.3',
-    '01.2.3',
-    '1.02.3',
-    '1.2.03',
-    '1.0.0-0',
-    '1.0.0-01'
+    '001.2.3', // leading zeroes in edition
+    '01.2.3', // leading zero in edition
+    '1.02.3', // leading zero in update
+    '1.2.03', // leading zero in correction
+    '1.0.0-0', // draft zero
+    '1.0.0-01' // leading zero in draft
   ]
 }
 
