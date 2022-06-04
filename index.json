@@ -26,6 +26,14 @@
     "content": {
       "type": "array",
       "minItems": 1
+    },
+    "notes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^\\S.*\\S$"
+      }
     }
   },
   "additionalProperties": false

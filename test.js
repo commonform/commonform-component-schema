@@ -65,6 +65,16 @@ const objects = {
       version: '1.0.0-1',
       published: '2022-06-04',
       content: ['example']
+    },
+    notes: {
+      publisher: 'Example',
+      name: 'Example',
+      version: '1.0.0',
+      content: ['example'],
+      notes: [
+        'This is the first note.',
+        'This is the second note.'
+      ]
     }
   },
   invalid: {
