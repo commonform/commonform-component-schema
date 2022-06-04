@@ -58,6 +58,13 @@ const objects = {
       name: 'Example',
       version: '1.0.0-1',
       content: ['example']
+    },
+    published: {
+      publisher: 'Example',
+      name: 'Example',
+      version: '1.0.0-1',
+      published: '2022-06-04',
+      content: ['example']
     }
   },
   invalid: {
