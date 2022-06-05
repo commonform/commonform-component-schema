@@ -4,6 +4,7 @@
     "publisher",
     "name",
     "version",
+    "license",
     "content"
   ],
   "properties": {
@@ -22,6 +23,19 @@
     "published": {
       "type": "string",
       "format": "date"
+    },
+    "license": {
+      "oneOf": [
+        {
+          "enum": [
+            "CC0-1.0"
+          ]
+        },
+        {
+          "type": "string",
+          "format": "url"
+        }
+      ]
     },
     "content": {
       "type": "array",

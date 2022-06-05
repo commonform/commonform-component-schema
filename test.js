@@ -45,80 +45,66 @@ const ajv = new Ajv({ allErrors: true })
 addFormats(ajv)
 const validate = ajv.compile(schema)
 
+const example = {
+  publisher: 'Example',
+  name: 'Example',
+  version: '1.0.0',
+  license: 'CC0-1.0',
+  content: ['example']
+}
+
+function exampleWith (properties) {
+  return Object.assign({}, example, properties)
+}
+
 const objects = {
   valid: {
+    example,
     'California Governing Law': {
       publisher: 'Stonecutters',
       name: 'California Governing Law',
       version: '1.0.0',
+      license: 'CC0-1.0',
       content: ['The law of the State of California will govern all rights and duties under this agreement.']
     },
-    'draft version': {
-      publisher: 'Example',
-      name: 'Example',
-      version: '1.0.0-1',
-      content: ['example']
-    },
-    published: {
-      publisher: 'Example',
-      name: 'Example',
-      version: '1.0.0-1',
-      published: '2022-06-04',
-      content: ['example']
-    },
-    notes: {
-      publisher: 'Example',
-      name: 'Example',
-      version: '1.0.0',
-      content: ['example'],
+    'draft version': exampleWith({
+      version: '1.0.0-1'
+    }),
+    published: exampleWith({
+      published: '2022-06-04'
+    }),
+    'license URL': exampleWith({
+      license: 'http://example.com/license'
+    }),
+    notes: exampleWith({
       notes: [
         'This is the first note.',
         'This is the second note.'
       ]
-    }
+    })
   },
   invalid: {
-    'no publisher': {
-      name: 'Example',
-      version: '1.0.0',
-      content: ['example']
-    },
-    'malformed version': {
-      publisher: 'Example',
-      name: 'Example',
-      version: 'xxx',
-      content: ['example']
-    },
-    'leading space in publisher': {
-      publisher: ' Example',
-      name: 'Example',
-      version: '1.0.0',
-      content: ['example']
-    },
-    'leading space in name': {
-      publisher: 'Example',
-      name: ' Example',
-      version: '1.0.0',
-      content: ['example']
-    },
-    'trailing space in publisher': {
-      publisher: 'Example ',
-      name: 'Example',
-      version: '1.0.0',
-      content: ['example']
-    },
-    'trailing space in name': {
-      publisher: 'Example',
-      name: 'Example ',
-      version: '1.0.0',
-      content: ['example']
-    },
-    'version without dots': {
-      publisher: 'Example',
-      name: 'Example',
-      version: '1X2X3',
-      content: ['example']
-    }
+    'no publisher': exampleWith({
+      publisher: undefined
+    }),
+    'malformed version': exampleWith({
+      version: 'xxx'
+    }),
+    'leading space in publisher': exampleWith({
+      publisher: ' Example'
+    }),
+    'leading space in name': exampleWith({
+      name: ' Example'
+    }),
+    'trailing space in publisher': exampleWith({
+      publisher: 'Example '
+    }),
+    'trailing space in name': exampleWith({
+      name: 'Example '
+    }),
+    'version without dots': exampleWith({
+      version: '1X2X3'
+    })
   }
 }
 
